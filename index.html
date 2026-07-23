@@ -4,79 +4,115 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elly Otieno | Portfolio</title>
+  <!-- Import better fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --bg: #ffffff;
-      --text: #222;
+      --text: #111111;
       --accent: #2e7d32;
-      --card: rgba(255,255,255,0.8);
-      --bg-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920'); /* Light: Bright forest */
+      --card: rgba(255,255,255,0.92);
+      --bg-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920');
     }
     [data-theme="dark"] {
       --bg: #0a1a0a;
-      --text: #e8f5e9;
+      --text: #ffffff;
       --accent: #66bb6a;
-      --card: rgba(20,40,20,0.8);
-      --bg-image: url('https://images.unsplash.com/photo-1425913397330-cee8e92c696a?q=80&w=1920'); /* Dark: Forest mist */
+      --card: rgba(10,30,10,0.92);
+      --bg-image: url('https://images.unsplash.com/photo-1425913397330-cee8e92c696a?q=80&w=1920');
     }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif; /* New clear font */
       background: var(--bg-image) no-repeat center center fixed;
       background-size: cover;
       color: var(--text);
       transition: 0.5s;
       scroll-behavior: smooth;
+      font-weight: 400;
     }
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.25); /* Darker overlay for readability */
       z-index: -1;
-      transition: 0.5s;
     }
     [data-theme="dark"]::before {
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
     }
     nav {
       display: flex;
       justify-content: space-between;
       padding: 20px 50px;
       background: var(--card);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
+      font-weight: 600;
+      font-size: 18px;
     }
     nav a { color: var(--text); text-decoration: none; margin: 0 15px; }
     #theme-toggle {
       background: var(--accent);
       border: none;
-      padding: 8px 15px;
+      padding: 10px 18px;
       border-radius: 20px;
       color: white;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: 700;
     }
     .hero { text-align: center; padding: 100px 20px; }
-    .hero h1 { font-size: 2.5em; min-height: 60px; }
+    .hero h1 { 
+      font-size: 3em; 
+      min-height: 70px; 
+      font-weight: 700;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* makes text pop */
+    }
+    .hero p {
+      font-size: 1.2em;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    }
     .cursor { border-right: 3px solid var(--accent); animation: blink 0.7s infinite; }
-    @keyframes blink { 50% { border-color: transparent; } }
-    .btn { background: var(--accent); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 20px; }
+    @keyframes blink { 50% { border-color: transparent; }
+    .btn { 
+      background: var(--accent); 
+      color: white; 
+      padding: 14px 30px; 
+      border-radius: 8px; 
+      text-decoration: none; 
+      font-weight: 700;
+      font-size: 1.1em;
+      display: inline-block; 
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    h2 {
+      font-size: 2em;
+      font-weight: 700;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
     section { padding: 60px 20px; max-width: 900px; margin: auto; }
     .card {
       background: var(--card);
       backdrop-filter: blur(12px);
-      padding: 20px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: 12px;
       margin-bottom: 20px;
       opacity: 0;
       transform: translateY(20px);
       transition: 0.6s;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 1.1em;
+      font-weight: 400;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .card.show { opacity: 1; transform: translateY(0); }
+    .card h3 { font-weight: 600; font-size: 1.3em; }
   </style>
 </head>
 <body>
@@ -116,7 +152,6 @@
   </section>
 
 <script>
-  // TYPING EFFECT
   const text = "Hi, I'm ELLY OTIENO";
   let i = 0;
   function type() {
@@ -128,7 +163,6 @@
   }
   type();
 
-  // DARK MODE TOGGLE
   const toggle = document.getElementById("theme-toggle");
   toggle.onclick = () => {
     document.body.dataset.theme = 
@@ -136,7 +170,6 @@
     toggle.innerText = document.body.dataset.theme === "dark" ? "☀️" : "🌙";
   }
 
-  // FADE IN ON SCROLL
   const cards = document.querySelectorAll(".card");
   window.addEventListener("scroll", () => {
     cards.forEach(card => {
