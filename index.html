@@ -2,141 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ELLY OTIENO | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elly Otieno | Portfolio</title>
   <style>
-    * { scroll-behavior: smooth; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: #333;
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --accent: #0077ff;
+      --card: #f4f4f4;
     }
-
-    header {
-      background: #1e3a8a;
-      color: white;
-      padding: 15px 50px;
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --accent: #4da6ff;
+      --card: #1e1e1e;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+      scroll-behavior: smooth;
+    }
+    nav {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      padding: 20px 50px;
+      background: var(--card);
       position: sticky;
       top: 0;
-      z-index: 1000;
     }
-
-    header h2 { margin: 0; }
-
-    nav a {
+    nav a { color: var(--text); text-decoration: none; margin: 0 15px; }
+    #theme-toggle {
+      background: var(--accent);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
       color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
+      cursor: pointer;
     }
-
-    nav a:hover { color: #fbbf24; }
-
     .hero {
-      background: linear-gradient(to right, #1e3a8a, #3b82f6);
-      color: white;
       text-align: center;
-      padding: 150px 20px; /* made it taller since no photo */
+      padding: 100px 20px;
     }
-
-    .hero h1 { font-size: 50px; margin-bottom: 10px; }
-
-    .hero a {
-      background: #fbbf24;
-      color: #1e3a8a;
-      padding: 14px 30px;
-      text-decoration: none;
+    .hero h1 {
+      font-size: 2.5em;
+      min-height: 60px;
+    }
+    .hero .cursor {
+      border-right: 3px solid var(--accent);
+      animation: blink 0.7s infinite;
+    }
+    @keyframes blink { 50% { border-color: transparent; } }
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 12px 25px;
       border-radius: 8px;
-      font-weight: bold;
+      text-decoration: none;
       display: inline-block;
       margin-top: 20px;
     }
-
-    .hero a:hover { background: white; }
-
-    section { padding: 80px 50px; text-align: center; }
-    #about { background: #f8fafc; }
-
-    .project-grid {
-      display: flex;
-      gap: 25px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 40px;
+    section { padding: 60px 20px; max-width: 900px; margin: auto; }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.6s;
     }
-
-    .project-card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      width: 280px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .project-card:hover { transform: translateY(-5px); }
-    .project-card h3 { color: #1e3a8a; }
-
-    footer {
-      background: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
+    .card.show { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-  <header>
-    <h2>ELLY</h2>
-    <nav>
-      <a href="#">Home</a>
+  <nav>
+    <div><b>Elly Otieno</b></div>
+    <div>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-    </nav>
-  </header>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </nav>
 
   <section class="hero">
-    <h1>Hi, I'm ELLY OTIENO</h1>
+    <h1><span id="typing"></span><span class="cursor"></span></h1>
     <p>Level 6 Software Development Student | Kabete National Polytechnic</p>
-    <a href="#projects">View My Work</a>
+    <a href="#projects" class="btn">View My Work</a>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I'm a passionate Software Development student based in Kenya. I love building websites, learning new technologies, and creating solutions that make life easier. Currently studying at Kabete National Polytechnic and skilled in HTML, CSS, and Python.</p>
+    <p>I'm passionate about building websites and solving problems with code. Currently studying Software Development and looking to grow my skills.</p>
   </section>
 
   <section id="projects">
     <h2>My Projects</h2>
-    
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>A responsive personal portfolio built with HTML & CSS to showcase my skills and journey as a developer.</p>
+    <div class="projects">
+      <div class="card">
+        <h3>Project 1</h3>
+        <p>A simple website I built for class.</p>
       </div>
-
-      <div class="project-card">
-        <h3>Student Management System</h3>
-        <p>A Python console application to manage student records - add, view, update and delete student details.</p>
+      <div class="card">
+        <h3>Project 2</h3>
+        <p>Calculator app using HTML, CSS & JS.</p>
       </div>
-
-      <div class="project-card">
-        <h3>Simple Calculator</h3>
-        <p>A basic calculator that performs addition, subtraction, multiplication and division with a clean interface.</p>
+      <div class="card">
+        <h3>Project 3</h3>
+        <p>Portfolio website - this one!</p>
       </div>
     </div>
   </section>
 
-  <footer id="contact">
-    <h3>Get In Touch</h3>
-    <p>Email: otienoelly722@gmail.com</p>
-    <p>© 2026 ELLY OTIENO. All Rights Reserved.</p>
-  </footer>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: ellyotieno722@gmail.com</p>
+  </section>
+
+<script>
+  // 1. TYPING EFFECT
+  const text = "Hi, I'm ELLY OTIENO";
+  let i = 0;
+  function type() {
+    if(i < text.length){
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 100);
+    }
+  }
+  type();
+
+  // 2. DARK MODE TOGGLE
+  const toggle = document.getElementById("theme-toggle");
+  toggle.onclick = () => {
+    document.body.dataset.theme = 
+      document.body.dataset.theme === "dark" ? "light" : "dark";
+    toggle.innerText = document.body.dataset.theme === "dark" ? "☀️" : "🌙";
+  }
+
+  // 3. FADE IN ON SCROLL
+  const cards = document.querySelectorAll(".card");
+  window.addEventListener("scroll", () => {
+    cards.forEach(card => {
+      if(card.getBoundingClientRect().top < window.innerHeight - 50){
+        card.classList.add("show");
+      }
+    })
+  })
+</script>
 
 </body>
 </html>
