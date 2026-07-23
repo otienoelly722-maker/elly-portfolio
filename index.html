@@ -7,33 +7,48 @@
   <style>
     :root {
       --bg: #ffffff;
-      --text: #222222;
+      --text: #222;
       --accent: #0077ff;
-      --card: #f4f4f4;
+      --card: rgba(255,255,255,0.85);
+      --bg-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920'); /* Light: water/moisture */
     }
     [data-theme="dark"] {
       --bg: #121212;
       --text: #e0e0e0;
       --accent: #4da6ff;
-      --card: #1e1e1e;
+      --card: rgba(30,30,30,0.85);
+      --bg-image: url('https://images.unsplash.com/photo-1519682332228-790b0dba2c2f?q=80&w=1920'); /* Dark: night rain */
     }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: var(--bg);
+      background: var(--bg-image) no-repeat center center fixed;
+      background-size: cover;
       color: var(--text);
-      transition: 0.3s;
+      transition: 0.5s;
       scroll-behavior: smooth;
+    }
+    body::before { /* dark overlay for readability */
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.2);
+      z-index: -1;
+      transition: 0.5s;
+    }
+    [data-theme="dark"]::before {
+      background: rgba(0,0,0,0.5);
     }
     nav {
       display: flex;
       justify-content: space-between;
       padding: 20px 50px;
       background: var(--card);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
     }
-    nav a { color: var(--text); text-decoration: none; margin: 0 15px; }
     #theme-toggle {
       background: var(--accent);
       border: none;
@@ -41,35 +56,20 @@
       border-radius: 20px;
       color: white;
       cursor: pointer;
+      font-size: 18px;
     }
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .hero h1 {
-      font-size: 2.5em;
-      min-height: 60px;
-    }
-    .hero .cursor {
-      border-right: 3px solid var(--accent);
-      animation: blink 0.7s infinite;
-    }
-    @keyframes blink { 50% { border-color: transparent; } }
-    .btn {
-      background: var(--accent);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-    }
+    .hero { text-align: center; padding: 100px 20px; }
+    .hero h1 { font-size: 2.5em; min-height: 60px; }
+    .cursor { border-right: 3px solid var(--accent); animation: blink 0.7s infinite; }
+    @keyframes blink { 50% { border-color: transparent; }
+    .btn { background: var(--accent); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; }
     section { padding: 60px 20px; max-width: 900px; margin: auto; }
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .card {
       background: var(--card);
+      backdrop-filter: blur(10px);
       padding: 20px;
       border-radius: 10px;
+      margin-bottom: 20px;
       opacity: 0;
       transform: translateY(20px);
       transition: 0.6s;
@@ -97,34 +97,24 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I'm passionate about building websites and solving problems with code. Currently studying Software Development and looking to grow my skills.</p>
+    <div class="card">
+      <p>I'm passionate about building websites and solving problems with code. Currently studying Software Development.</p>
+    </div>
   </section>
 
   <section id="projects">
     <h2>My Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Project 1</h3>
-        <p>A simple website I built for class.</p>
-      </div>
-      <div class="card">
-        <h3>Project 2</h3>
-        <p>Calculator app using HTML, CSS & JS.</p>
-      </div>
-      <div class="card">
-        <h3>Project 3</h3>
-        <p>Portfolio website - this one!</p>
-      </div>
-    </div>
+    <div class="card"><h3>Project 1</h3><p>A simple website I built for class.</p></div>
+    <div class="card"><h3>Project 2</h3><p>Calculator app using HTML, CSS & JS.</p></div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: ellyotieno722@gmail.com</p>
+    <div class="card"><p>Email: ellyotieno722@gmail.com</p></div>
   </section>
 
 <script>
-  // 1. TYPING EFFECT
+  // TYPING EFFECT
   const text = "Hi, I'm ELLY OTIENO";
   let i = 0;
   function type() {
@@ -136,7 +126,7 @@
   }
   type();
 
-  // 2. DARK MODE TOGGLE
+  // DARK MODE TOGGLE
   const toggle = document.getElementById("theme-toggle");
   toggle.onclick = () => {
     document.body.dataset.theme = 
@@ -144,7 +134,7 @@
     toggle.innerText = document.body.dataset.theme === "dark" ? "☀️" : "🌙";
   }
 
-  // 3. FADE IN ON SCROLL
+  // FADE IN ON SCROLL
   const cards = document.querySelectorAll(".card");
   window.addEventListener("scroll", () => {
     cards.forEach(card => {
