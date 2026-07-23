@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ELLY OTIENO | Portfolio</title>
+  <style>
+    * { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h2 { margin: 0; }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover { color: #fbbf24; }
+
+    .hero {
+      background: linear-gradient(to right, #1e3a8a, #3b82f6);
+      color: white;
+      text-align: center;
+      padding: 150px 20px; /* made it taller since no photo */
+    }
+
+    .hero h1 { font-size: 50px; margin-bottom: 10px; }
+
+    .hero a {
+      background: #fbbf24;
+      color: #1e3a8a;
+      padding: 14px 30px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .hero a:hover { background: white; }
+
+    section { padding: 80px 50px; text-align: center; }
+    #about { background: #f8fafc; }
+
+    .project-grid {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card h3 { color: #1e3a8a; }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>ELLY</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Hi, I'm ELLY OTIENO</h1>
+    <p>Level 6 Software Development Student | Kabete National Polytechnic</p>
+    <a href="#projects">View My Work</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm a passionate Software Development student based in Kenya. I love building websites, learning new technologies, and creating solutions that make life easier. Currently studying at Kabete National Polytechnic and skilled in HTML, CSS, and Python.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A responsive personal portfolio built with HTML & CSS to showcase my skills and journey as a developer.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Student Management System</h3>
+        <p>A Python console application to manage student records - add, view, update and delete student details.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Simple Calculator</h3>
+        <p>A basic calculator that performs addition, subtraction, multiplication and division with a clean interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h3>Get In Touch</h3>
+    <p>Email: otienoelly722@gmail.com</p>
+    <p>© 2026 ELLY OTIENO. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
