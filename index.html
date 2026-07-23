@@ -4,29 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elly Otieno | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #111;
-      --accent: #2e7d32;
+      --bg: #f0f4ff;
+      --text: #0a0a1a;
+      --accent: #00d4ff; /* Neon Cyan */
+      --accent2: #7b2fff; /* Neon Purple */
       --card: rgba(255,255,255,0.95);
-      --hero-box: rgba(255,255,255,0.85);
-      --bg-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920');
+      --hero-box: rgba(255,255,255,0.88);
+      --bg-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1920'); /* Light: Sleek car */
     }
     [data-theme="dark"] {
-      --bg: #0a1a0a;
-      --text: #ffffff;
-      --accent: #66bb6a;
-      --card: rgba(10,30,10,0.95);
-      --hero-box: rgba(0,0,0,0.7);
-      --bg-image: url('https://images.unsplash.com/photo-1425913397330-cee8e92c696a?q=80&w=1920');
+      --bg: #050510;
+      --text: #e0e0ff;
+      --accent: #00f0ff; /* Bright Neon Cyan */
+      --accent2: #a855f7; /* Bright Neon Purple */
+      --card: rgba(10,10,30,0.95);
+      --hero-box: rgba(5,5,20,0.8);
+      --bg-image: url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1920'); /* Dark: Cyberpunk car at night */
     }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg-image) no-repeat center center fixed;
+      font-family: 'Inter', sans-serif; /* Body = clean readable */
+      background: var(--bg-image) no-repeat center fixed;
       background-size: cover;
       color: var(--text);
       transition: 0.5s;
@@ -37,7 +40,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.2);
+      background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
       z-index: -1;
     }
     nav {
@@ -45,23 +48,27 @@
       justify-content: space-between;
       padding: 20px 50px;
       background: var(--card);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
+      font-family: 'Orbitron', sans-serif; /* Nav = tech font */
       font-weight: 700;
       font-size: 18px;
       z-index: 10;
+      border-bottom: 2px solid var(--accent);
     }
-    nav a { color: var(--text); text-decoration: none; margin: 0 15px; }
+    nav a { color: var(--text); text-decoration: none; margin: 0 15px; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
     #theme-toggle {
-      background: var(--accent);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       border: none;
       padding: 10px 18px;
       border-radius: 20px;
-      color: white;
+      color: #000;
       cursor: pointer;
       font-size: 20px;
-      font-weight: 800;
+      font-weight: 900;
+      box-shadow: 0 0 15px var(--accent);
     }
     .hero { 
       text-align: center; 
@@ -70,50 +77,61 @@
       flex-direction: column;
       align-items: center;
     }
-    .hero-box { /* THIS MAKES TEXT READABLE */
+    .hero-box {
       background: var(--hero-box);
-      padding: 40px 50px;
+      padding: 50px 60px;
       border-radius: 20px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-      max-width: 700px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+      max-width: 750px;
+      border: 2px solid var(--accent);
     }
     .hero h1 { 
-      font-size: 3.5em; 
-      min-height: 80px; 
-      font-weight: 800;
+      font-family: 'Orbitron', sans-serif; /* Name = tech font */
+      font-size: 3.8em; 
+      min-height: 90px; 
+      font-weight: 900;
       margin: 0;
-      color: var(--text);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; /* Gradient text */
+      text-shadow: 0 0 20px var(--accent);
     }
     .hero p {
       font-size: 1.3em;
       font-weight: 600;
-      margin: 15px 0;
+      margin: 20px 0;
     }
     .cursor { border-right: 4px solid var(--accent); animation: blink 0.7s infinite; }
     @keyframes blink { 50% { border-color: transparent; }
     .btn { 
-      background: var(--accent); 
-      color: white; 
-      padding: 16px 35px; 
-      border-radius: 10px; 
+      background: linear-gradient(90deg, var(--accent), var(--accent2)); 
+      color: #000; 
+      padding: 18px 40px; 
+      border-radius: 12px; 
       text-decoration: none; 
+      font-family: 'Orbitron', sans-serif;
       font-weight: 700;
       font-size: 1.2em;
       display: inline-block; 
       margin-top: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px var(--accent);
+      transition: 0.3s;
     }
+    .btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent2); }
     h2 {
-      font-size: 2.2em;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5em;
       font-weight: 800;
       text-align: center;
       margin-bottom: 30px;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
     }
     section { padding: 80px 20px; max-width: 900px; margin: auto; }
     .card {
       background: var(--card);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(15px);
       padding: 30px;
       border-radius: 15px;
       margin-bottom: 25px;
@@ -122,16 +140,18 @@
       transition: 0.6s;
       font-size: 1.15em;
       font-weight: 400;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+      border-left: 5px solid var(--accent2);
     }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 0 30px rgba(168, 85, 247, 0.4); }
     .card.show { opacity: 1; transform: translateY(0); }
-    .card h3 { font-weight: 700; font-size: 1.4em; }
+    .card h3 { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.4em; color: var(--accent2); }
   </style>
 </head>
 <body>
 
   <nav>
-    <div><b>Elly Otieno</b></div>
+    <div><b>ELLY OTIENO</b></div>
     <div>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -141,7 +161,7 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-box"> <!-- BOX AROUND TEXT -->
+    <div class="hero-box">
       <h1><span id="typing"></span><span class="cursor"></span></h1>
       <p>Level 6 Software Development Student | Kabete National Polytechnic</p>
       <a href="#projects" class="btn">View My Work</a>
@@ -157,8 +177,8 @@
 
   <section id="projects">
     <h2>My Projects</h2>
-    <div class="card"><h3>Project 1</h3><p>A simple website I built for class.</p></div>
-    <div class="card"><h3>Project 2</h3><p>Calculator app using HTML, CSS & JS.</p></div>
+    <div class="card"><h3>Project 1</h3><p>A responsive website built with HTML, CSS & JavaScript.</p></div>
+    <div class="card"><h3>Project 2</h3><p>Interactive Calculator App with modern UI design.</p></div>
   </section>
 
   <section id="contact">
@@ -173,7 +193,7 @@
     if(i < text.length){
       document.getElementById("typing").innerHTML += text.charAt(i);
       i++;
-      setTimeout(type, 100);
+      setTimeout(type, 80);
     }
   }
   type();
