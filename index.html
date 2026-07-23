@@ -28,7 +28,7 @@
     }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif; /* Body = clean readable */
+      font-family: 'Inter', sans-serif;
       background: var(--bg-image) no-repeat center fixed;
       background-size: cover;
       color: var(--text);
@@ -51,7 +51,7 @@
       backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
-      font-family: 'Orbitron', sans-serif; /* Nav = tech font */
+      font-family: 'Orbitron', sans-serif;
       font-weight: 700;
       font-size: 18px;
       z-index: 10;
@@ -87,14 +87,14 @@
       border: 2px solid var(--accent);
     }
     .hero h1 { 
-      font-family: 'Orbitron', sans-serif; /* Name = tech font */
+      font-family: 'Orbitron', sans-serif;
       font-size: 3.8em; 
       min-height: 90px; 
       font-weight: 900;
       margin: 0;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; /* Gradient text */
+      -webkit-text-fill-color: transparent;
       text-shadow: 0 0 20px var(--accent);
     }
     .hero p {
@@ -103,7 +103,7 @@
       margin: 20px 0;
     }
     .cursor { border-right: 4px solid var(--accent); animation: blink 0.7s infinite; }
-    @keyframes blink { 50% { border-color: transparent; }
+    @keyframes blink { 50% { border-color: transparent; } }
     .btn { 
       background: linear-gradient(90deg, var(--accent), var(--accent2)); 
       color: #000; 
@@ -115,10 +115,13 @@
       font-size: 1.2em;
       display: inline-block; 
       margin-top: 25px;
-      box-shadow: 0 0 20px var(--accent);
+      box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent2); /* NEON GLOW */
       transition: 0.3s;
     }
-    .btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent2); }
+    .btn:hover { 
+      transform: scale(1.08); 
+      box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent2); /* BIGGER GLOW */
+    }
     h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.5em;
@@ -187,7 +190,7 @@
   </section>
 
 <script>
-  const text = "Hi, I'm ELLY OTIENO";
+  const text = "Hi, I'm ELLY OTIENO"; // FIXED: Added Hi
   let i = 0;
   function type() {
     if(i < text.length){
